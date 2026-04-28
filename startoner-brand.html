@@ -478,6 +478,46 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
 .anti-tile p code{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:rgba(255,255,255,.08);padding:1px 5px;border-radius:4px;color:#fff}
 .anti-tile p strong{color:#fff}
 
+/* ============ PATRONES ============ */
+.pat-grid{display:grid;gap:18px}
+.pat{padding:32px;border-radius:var(--r-card);background:#fff;border:1px solid var(--c-line);position:relative}
+.pat-eye{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c-mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;display:inline-flex;align-items:center;gap:8px}
+.pat-eye::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--c-cyan)}
+.pat[data-c="magenta"] .pat-eye::before{background:var(--c-magenta)}
+.pat[data-c="yellow"] .pat-eye::before{background:var(--c-yellow)}
+.pat[data-c="mint"] .pat-eye::before{background:var(--c-mint)}
+.pat h3{font-size:22px;font-weight:700;letter-spacing:-.015em;margin-bottom:8px;line-height:1.2}
+.pat-desc{font-size:14.5px;color:var(--c-soft);max-width:680px;margin-bottom:22px}
+.pat-demo{padding:24px;border-radius:14px;background:var(--c-bone);border:1px solid var(--c-line);margin-bottom:14px}
+.pat-demo.dark{background:#0c0c0e;color:#fff;border-color:rgba(255,255,255,.10)}
+.pat-h{font-size:32px;font-weight:800;letter-spacing:-.025em;line-height:1.05}
+.pat-h em{font-style:italic;background:linear-gradient(135deg,var(--c-cyan) 0%,var(--c-magenta) 50%,var(--c-yellow) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;font-weight:800}
+.pat-eyebrow-demo{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-mute);font-weight:600;margin-bottom:8px}
+.pat-sub{font-size:14px;color:var(--c-soft);margin-top:8px}
+.pat-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pat-strip-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--c-line);font-size:12.5px;font-weight:600}
+.pat-demo.dark .pat-strip-pill{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#fff}
+.pat-strip-pill svg{width:14px;height:14px;flex-shrink:0}
+.pat-strip-pill[data-c="mint"] svg{color:var(--c-mint)}
+.pat-strip-pill[data-c="cyan"] svg{color:var(--c-cyan)}
+.pat-strip-pill[data-c="yellow"] svg{color:var(--c-yellow)}
+.pat-strip-pill[data-c="magenta"] svg{color:var(--c-magenta)}
+.pat-syntax{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--c-soft);background:var(--c-bone);padding:14px 18px;border-radius:10px;border:1px solid var(--c-line);margin-top:10px;white-space:pre-wrap}
+.pat-syntax .ok{color:#047a4a;font-weight:600}
+.pat-syntax .bad{color:#a40063;font-weight:600;text-decoration:line-through}
+.pat-citation{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.pat-cit{padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--c-line);text-align:left}
+.pat-cit-eye{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--c-mute);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.pat-cit-body{font-size:13px;font-weight:600;color:var(--c-ink)}
+.pat-cit[data-c="cyan"]{border-top:3px solid var(--c-cyan)}
+.pat-cit[data-c="yellow"]{border-top:3px solid var(--c-yellow)}
+.pat-cit[data-c="magenta"]{border-top:3px solid var(--c-magenta)}
+.pat-scaffold{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;counter-reset:scaffold}
+.pat-scaffold-step{padding:18px 14px 16px;border-radius:12px;background:#fff;border:1px solid var(--c-line);position:relative;counter-increment:scaffold}
+.pat-scaffold-step::before{content:'0' counter(scaffold);position:absolute;top:10px;right:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--c-mute);font-weight:600}
+.pat-scaffold-step h5{font-size:13.5px;font-weight:700;margin-bottom:4px;letter-spacing:-.005em}
+.pat-scaffold-step p{font-size:12px;color:var(--c-soft);line-height:1.4}
+
 /* ============ MOBILE ============ */
 @media (max-width: 900px){
   .hero-row{grid-template-columns:1fr;gap:32px}
@@ -535,6 +575,7 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
       <a href="#voz">Voz</a>
       <a href="#componentes">Componentes</a>
       <a href="#iconos">Iconos</a>
+      <a href="#patrones">Patrones</a>
       <a href="#mensajes">Mensajes</a>
       <a href="#anti">Lo que no hacemos</a>
     </div>
@@ -1140,10 +1181,120 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
   </div>
 </section>
 
+<!-- ============ PATRONES EDITORIALES ============ -->
+<section id="patrones" class="sec wrap">
+  <div class="sec-head">
+    <span class="sec-num">12</span>
+    <div>
+      <h2>Patrones editoriales.</h2>
+      <p class="sec-lead">Las fórmulas reproducibles extraídas de las páginas que ya rinden bien (homepage, ofertas, distribuidores, blog). Cuando una superficie nueva entra en producción, se construye copiando estos patrones — no inventando los suyos.</p>
+    </div>
+  </div>
+
+  <div class="pat-grid">
+
+    <!-- 12.1 — Hero formula -->
+    <article class="pat" data-c="cyan">
+      <span class="pat-eye">12.1 · Fórmula del hero</span>
+      <h3>Eyebrow técnico → H1 con verbo italicizado → subhead numérico → 4-pill strip.</h3>
+      <p class="pat-desc">El H1 contiene <strong>una sola palabra emocional</strong> en cursiva con gradiente CMYK (<code>_Imbatibles_</code>, <code>_Crece_</code>, <code>_Imprime_</code>). Nunca dos. El eyebrow lleva siempre certificaciones técnicas reales (<code>ISO 9001 · CE · ROHS</code>). El subhead empareja "<strong>Misma calidad que el original</strong>" con la cifra "<strong>hasta 70% más barato</strong>".</p>
+
+      <div class="pat-demo dark">
+        <div class="pat-eyebrow-demo" style="color:rgba(255,255,255,.6)">ISO 9001 · CE · ROHS · Certificados</div>
+        <div class="pat-h" style="color:#fff">Ofertas <em>Imbatibles</em></div>
+        <div class="pat-sub" style="color:rgba(255,255,255,.7)">Misma calidad que el original, hasta un 70% más barato.</div>
+      </div>
+
+      <div class="pat-syntax"><span class="ok">✓</span>  eyebrow + H1 con un solo <em>verbo</em> en gradiente + subhead "Misma calidad · 70% menos"
+<span class="bad">✗</span>  H1 sin italic, dos italics, o sin certificaciones reales en eyebrow</div>
+    </article>
+
+    <!-- 12.2 — Trust pill strip -->
+    <article class="pat" data-c="mint">
+      <span class="pat-eye">12.2 · Strip de confianza · 4 pildoras invariantes</span>
+      <h3>Compra 100% segura · Envío 24-48h península · ISO 9001 certificado · Garantía 3 años.</h3>
+      <p class="pat-desc">En este orden exacto. Sin sustituciones. Sin orden alternativo. Aparece siempre cerca del pie de cada plantilla — homepage, PDP, blog, política. Las strips superiores pueden añadir contexto (<code>Devolución 30 días</code>, <code>500+ Referencias</code>), pero esta cuádrupla cierra todas las páginas como sello de marca.</p>
+
+      <div class="pat-demo">
+        <div class="pat-strip">
+          <span class="pat-strip-pill" data-c="mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Compra 100% segura</span>
+          <span class="pat-strip-pill" data-c="cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Envío 24-48h península</span>
+          <span class="pat-strip-pill" data-c="mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ISO 9001 certificado</span>
+          <span class="pat-strip-pill" data-c="yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Garantía 3 años</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12.3 — Numerical reframe lede -->
+    <article class="pat" data-c="magenta">
+      <span class="pat-eye">12.3 · Reformulación numérica en el lede</span>
+      <h3>Cada artículo abre con una cifra que desnuda el modelo OEM.</h3>
+      <p class="pat-desc">Voz: <strong>"tú", consumer-advocate, escéptica sin ira</strong>. La primera frase de cualquier artículo de blog presenta un dato económico que reencuadra la conversación. No abre con definiciones ni con bienvenidas: abre con la matemática que el OEM no quiere que veas.</p>
+
+      <div class="pat-demo">
+        <p style="font-size:18px;font-weight:600;line-height:1.45;color:var(--c-ink);margin-bottom:12px">"Compras una impresora por 129 €. Seis meses después, el primer cartucho cuesta 148 €."</p>
+        <p style="font-size:14px;color:var(--c-mute);font-family:'JetBrains Mono',monospace">— Apertura de "El coste real de imprimir"</p>
+      </div>
+
+      <div class="pat-syntax"><span class="ok">✓</span>  primera frase con una cifra concreta que reencuadra el problema
+<span class="bad">✗</span>  abrir con "En este artículo veremos…" / "Bienvenido al mundo de…" / "Las impresoras son herramientas esenciales…"</div>
+    </article>
+
+    <!-- 12.4 — Triangulated authority -->
+    <article class="pat" data-c="yellow">
+      <span class="pat-eye">12.4 · Tríada de autoridad</span>
+      <h3>Toda afirmación sobre garantía o calidad necesita 3 fuentes.</h3>
+      <p class="pat-desc">Cuando Startoner reclama un derecho del consumidor o impugna una práctica OEM, el argumento se sostiene en <strong>ley + estándar + caso</strong>. Una sola fuente es opinión. Dos son retórica. Tres son auditoría.</p>
+
+      <div class="pat-citation">
+        <div class="pat-cit" data-c="cyan">
+          <div class="pat-cit-eye">Ley</div>
+          <div class="pat-cit-body">Art. 120 RDL 1/2007 (LGDCU) + Directiva (UE) 2019/771</div>
+        </div>
+        <div class="pat-cit" data-c="yellow">
+          <div class="pat-cit-eye">Estándar</div>
+          <div class="pat-cit-body">ISO 9001 · ISO 14001 · ISO/IEC 19752/19798/24711</div>
+        </div>
+        <div class="pat-cit" data-c="magenta">
+          <div class="pat-cit-eye">Caso</div>
+          <div class="pat-cit-body">AGCM €10M HP fine · Impression v. Lexmark · CNMC</div>
+        </div>
+      </div>
+      <p style="font-size:13.5px;color:var(--c-soft);margin-top:14px">Disponer las tres fuentes nominalmente es la diferencia entre <em>creer</em> a Startoner y <em>poder citar</em> a Startoner. Los artículos de impacto siempre llevan byline humana — <strong>Mohamed Attahiri</strong> firma las piezas legal-económicas; CHICTRATEC SL firma las divulgativas.</p>
+    </article>
+
+    <!-- 12.5 — Blog scaffold -->
+    <article class="pat" data-c="cyan">
+      <span class="pat-eye">12.5 · Andamiaje del artículo</span>
+      <h3>Cinco bloques. En este orden. Sin excepciones.</h3>
+      <p class="pat-desc">El audit del corpus blog (15 artículos) muestra que los posts que rinden mejor mezclan herramienta + tabla + casos + FAQ + cierre Cádiz. Quitar uno solo corta tiempo en página y conversión. Añadir un sexto sobrecarga lectura.</p>
+
+      <div class="pat-scaffold">
+        <div class="pat-scaffold-step"><h5>Herramienta</h5><p>Decoder, calculadora ROI, wizard de compatibilidad o quiz de madurez.</p></div>
+        <div class="pat-scaffold-step"><h5>Tabla</h5><p>Comparativa con rendimiento ISO normalizado (no impresiones marketing).</p></div>
+        <div class="pat-scaffold-step"><h5>Casos</h5><p>Mínimo 2 arquetipos con nombre + ciudad + cifras auditables.</p></div>
+        <div class="pat-scaffold-step"><h5>FAQ</h5><p>Bloque de 5–8 preguntas técnicas que el lector hace al final.</p></div>
+        <div class="pat-scaffold-step"><h5>Cierre Cádiz</h5><p>ISO + 24h Los Barrios + WhatsApp + Siempre disponibles + 3 años.</p></div>
+      </div>
+    </article>
+
+    <!-- 12.6 — Closing CTA -->
+    <article class="pat" data-c="mint">
+      <span class="pat-eye">12.6 · Cierre repetible</span>
+      <h3>Catálogo · WhatsApp · Siempre disponibles · Los Barrios.</h3>
+      <p class="pat-desc">Toda página que termine en una llamada a la acción cierra con esta combinación: un enlace al catálogo o colección relevante, el botón WhatsApp <code>wa.me/34651788090</code>, la frase "Siempre disponibles" y el origen físico Los Barrios (Cádiz). Sin horarios. Sin "respuesta en 2h" si no se cumple medible. Sin newsletter como CTA principal — la newsletter vive en el footer.</p>
+
+      <div class="pat-syntax"><span class="ok">✓</span>  Catálogo + WhatsApp + "Siempre disponibles" + Los Barrios + Garantía 3 años
+<span class="bad">✗</span>  "Suscríbete a la newsletter" como CTA primario · "Lunes a Viernes 09:00-14:00"</div>
+    </article>
+
+  </div>
+</section>
+
 <!-- ============ MENSAJES ============ -->
 <section id="mensajes" class="sec wrap">
   <div class="sec-head">
-    <span class="sec-num">12</span>
+    <span class="sec-num">13</span>
     <div>
       <h2>Mensajes clave.</h2>
       <p class="sec-lead">Los nueve mensajes que cualquier superficie de Startoner debe poder defender ante un cliente, un abogado y un auditor SEO.</p>
@@ -1202,7 +1353,7 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
 <section id="anti" class="anti">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">13</span>
+      <span class="sec-num">14</span>
       <div>
         <h2>Lo que Startoner nunca hace.</h2>
         <p class="sec-lead">Una marca se define tanto por lo que rechaza como por lo que adopta. Esta lista pesa lo mismo que la paleta de color y la tipografía. Cada punto sale de un hallazgo concreto del audit pre-launch del 26 de abril de 2026.</p>
