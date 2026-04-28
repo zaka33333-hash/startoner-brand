@@ -491,7 +491,7 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
 .pat-demo{padding:24px;border-radius:14px;background:var(--c-bone);border:1px solid var(--c-line);margin-bottom:14px}
 .pat-demo.dark{background:#0c0c0e;color:#fff;border-color:rgba(255,255,255,.10)}
 .pat-h{font-size:32px;font-weight:800;letter-spacing:-.025em;line-height:1.05}
-.pat-h em{font-style:italic;background:linear-gradient(135deg,var(--c-cyan) 0%,var(--c-magenta) 50%,var(--c-yellow) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;font-weight:800}
+.pat-h em{font-style:normal;background:linear-gradient(135deg,var(--c-cyan) 0%,var(--c-magenta) 50%,var(--c-yellow) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;font-weight:800}
 .pat-eyebrow-demo{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-mute);font-weight:600;margin-bottom:8px}
 .pat-sub{font-size:14px;color:var(--c-soft);margin-top:8px}
 .pat-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
@@ -1203,8 +1203,8 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
     <!-- 12.1 — Hero formula -->
     <article class="pat" data-c="cyan">
       <span class="pat-eye">12.1 · Fórmula del hero</span>
-      <h3>Eyebrow técnico → H1 con verbo italicizado → subhead numérico → 4-pill strip.</h3>
-      <p class="pat-desc">El H1 contiene <strong>una sola palabra emocional</strong> en cursiva con gradiente CMYK (<code>_Imbatibles_</code>, <code>_Crece_</code>, <code>_Imprime_</code>). Nunca dos. El eyebrow lleva siempre certificaciones técnicas reales (<code>ISO 9001 · CE · ROHS</code>). El subhead empareja "<strong>Misma calidad que el original</strong>" con la cifra "<strong>hasta 70% más barato</strong>".</p>
+      <h3>Eyebrow técnico → H1 con verbo en gradiente CMYK → subhead numérico → 4-pill strip.</h3>
+      <p class="pat-desc">El H1 contiene <strong>una sola palabra emocional</strong> teñida con gradiente CMYK (<code>Imbatibles</code>, <code>Crece</code>, <code>Imprime</code>, <code>intermediarios</code>). Nunca dos. <strong>Sin cursiva</strong> — la diferenciación viene del gradiente, no del slant tipográfico. El eyebrow lleva siempre certificaciones técnicas reales (<code>ISO 9001 · CE · ROHS</code>). El subhead empareja "<strong>Misma calidad que el original</strong>" con la cifra "<strong>hasta 70% más barato</strong>".</p>
 
       <div class="pat-demo dark">
         <div class="pat-eyebrow-demo" style="color:rgba(255,255,255,.6)">ISO 9001 · CE · ROHS · Certificados</div>
@@ -1212,8 +1212,8 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
         <div class="pat-sub" style="color:rgba(255,255,255,.7)">Misma calidad que el original, hasta un 70% más barato.</div>
       </div>
 
-      <div class="pat-syntax"><span class="ok">✓</span>  eyebrow + H1 con un solo <em>verbo</em> en gradiente + subhead "Misma calidad · 70% menos"
-<span class="bad">✗</span>  H1 sin italic, dos italics, o sin certificaciones reales en eyebrow</div>
+      <div class="pat-syntax"><span class="ok">✓</span>  eyebrow + H1 con una sola palabra en gradiente CMYK + subhead "Misma calidad · 70% menos"
+<span class="bad">✗</span>  H1 sin gradiente, dos palabras teñidas, italic/cursiva, o sin certificaciones reales en eyebrow</div>
     </article>
 
     <!-- 12.2 — Trust pill strip -->
@@ -1416,6 +1416,11 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
       <div class="anti-tile">
         <h4>Reembolso por debajo del plazo legal.</h4>
         <p>Decir "reembolsamos en 7 días hábiles tras validación de calidad" infringe el <strong>art. 76 LGDCU</strong> (máximo 14 días naturales desde la comunicación de desistimiento). Crea responsabilidad LCD Art. 5 + LGDCU Art. 105 (extensión automática a 12 meses).</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Cursiva en H1 / titulares.</h4>
+        <p>Manrope 800 + gradiente CMYK ya hace todo el trabajo de diferenciación. Añadir <code>font-style: italic</code> sobre el gradiente arruina la legibilidad y satura visualmente. Regla: el énfasis tipográfico viene del <strong>color</strong>, nunca del <strong>slant</strong>. Solo se permite italic en cursivas reales (citas literales, títulos de libros, palabras en otro idioma).</p>
       </div>
 
       <div class="anti-tile">
