@@ -578,6 +578,10 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
       <a href="#patrones">Patrones</a>
       <a href="#mensajes">Mensajes</a>
       <a href="#anti">Lo que no hacemos</a>
+      <a href="#busqueda">Búsqueda</a>
+      <a href="#glow">Glows</a>
+      <a href="#subrayado">Subrayado</a>
+      <a href="#anti2">Anti-patrones v2</a>
     </div>
   </div>
 </nav>
@@ -1446,6 +1450,275 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
       <div class="anti-tile">
         <h4>Implicar que Recycop tiene operación en España.</h4>
         <p>Recycop es <strong>marroquí</strong> (Tánger, .ma TLD, francés como idioma base). Su tienda B2C envía solo a Marruecos. La operación española es 100% CHICTRATEC S.L. desde Cádiz. Frase correcta: "Startoner está operada por CHICTRATEC S.L. desde Los Barrios (Cádiz); su trastienda industrial es el Grupo Recycop (Tánger, 1998)." Nunca: "Recycop España" ni "Sede Recycop en Cádiz".</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BÚSQUEDA (Apex search modal) ============ -->
+<section id="busqueda" class="sec wrap">
+  <div class="sec-head">
+    <span class="sec-num">15</span>
+    <div>
+      <h2>Vocabulario del buscador.</h2>
+      <p class="sec-lead">El buscador es un componente premium tan codificado como el hero. Este apartado fija el lenguaje visual del modal Apex (`apex-search-v3.css` + `apex-search-v3.js`) — desde el icono prefijo del input hasta los iconos de fallback por tipo de recurso. Si el buscador no se siente como una pieza editorial, no es Startoner.</p>
+    </div>
+  </div>
+
+  <div class="comp-grid" style="grid-template-columns:1fr 1fr;gap:28px;margin-top:32px">
+
+    <div class="comp-tile">
+      <h4>Header del modal</h4>
+      <ul class="comp-spec">
+        <li>Glass dark panel: <code>rgba(12,12,16,0.84)</code> + <code>backdrop-filter: blur(40px) saturate(160%)</code>.</li>
+        <li>Border interior: <code>1px solid rgba(255,255,255,0.08)</code> + inset highlight <code>rgba(255,255,255,0.06)</code>.</li>
+        <li>Backdrop CMYK ambiental: cyan top-left + magenta bottom-right + yellow bottom-center, todos al 5-12% de opacidad.</li>
+        <li>Border-radius: 28px desktop, 0 mobile (full-screen).</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Input principal</h4>
+      <ul class="comp-spec">
+        <li>Icono lupa <strong>cyan</strong> a la izquierda, anima a <code>color: rgb(var(--apex-cyan))</code> + <code>scale(1.05)</code> en focus.</li>
+        <li>Tipografía: <code>Manrope 800</code>, tamaño <code>clamp(28px, 4vw, 40px)</code>, letter-spacing <code>-0.025em</code>.</li>
+        <li>Caret cyan: <code>caret-color: rgb(var(--apex-cyan))</code>.</li>
+        <li>SIN borde, SIN outline. <code>border:none!important;outline:none!important</code>. La línea inferior gradient es la firma.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Línea inferior — gradient CMYK</h4>
+      <ul class="comp-spec">
+        <li>Idle: gradient horizontal cyan→mint→magenta al 45% de opacidad. Activa el "estás en un buscador serio".</li>
+        <li>Focus: opacidad 100%, halo cyan al rededor (<code>box-shadow</code> en el contenedor).</li>
+        <li>Loading: progress bar animada superpuesta, <code>animation: pulseLine 1.2s</code>, sólo visible cuando hay query.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Hints de teclado</h4>
+      <ul class="comp-spec">
+        <li>Top-right del modal, junto al close button.</li>
+        <li>Pills: <code>↵ ir</code> · <code>esc cerrar</code> en JetBrains Mono 10px, fondo <code>rgba(255,255,255,0.04)</code>.</li>
+        <li>Activan el "command palette" feeling premium — Linear, Raycast, Stripe lo hacen.</li>
+        <li>Hidden en mobile (no aplica al touch).</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Eyebrow pulse-dot en encabezados</h4>
+      <ul class="comp-spec">
+        <li>Cada label de sección dentro del modal ("CATEGORÍAS POPULARES", "BÚSQUEDAS RECIENTES") empieza con un punto cyan animado.</li>
+        <li>Misma animación que la sección IQ "Por qué Startoner" — <code>apexEyebrowPulse 2.4s cubic-bezier(.4,0,.6,1) infinite</code>.</li>
+        <li>Tipografía label: <code>11px / 700 / letter-spacing 0.16em / uppercase / opacity 0.45</code>.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Chips de categorías populares</h4>
+      <ul class="comp-spec">
+        <li>Rotación CMYK por <code>nth-child(4n+N)</code> — primer chip cyan, segundo magenta, tercero yellow, cuarto mint, repite.</li>
+        <li>Hover: bg <code>rgba(var(--chip-rgb), 0.10)</code> + border <code>rgba(var(--chip-rgb), 0.42)</code> + glow <code>0 0 18px rgba(var(--chip-rgb), 0.22)</code>.</li>
+        <li>Lift: <code>transform: translateY(-1px)</code>.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Cards de resultados — meta row</h4>
+      <ul class="comp-spec">
+        <li>Vendor + categoría badge inline arriba del título (NUNCA badge absolute-corner — overlap con títulos largos).</li>
+        <li>Vendor: 10px / uppercase / 0.12em letter-spacing / opacity 0.42.</li>
+        <li>Badge: JetBrains Mono 9px, color por tipo: cyan (Producto), mint (Colección), yellow (Guía), magenta (Página).</li>
+        <li>Title: Manrope 14px / 700 / line-clamp 2.</li>
+        <li>Min-height del card: <code>92px</code> para alinear el grid cuando hay cards sin imagen.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Iconos de fallback por tipo</h4>
+      <ul class="comp-spec">
+        <li>Cuando el item no tiene <code>image</code> ni <code>featured_image</code>, render SVG icon en lugar de caja vacía.</li>
+        <li><strong>Colección:</strong> folder · tinte mint · <code>color: rgba(var(--mint), 0.85)</code>.</li>
+        <li><strong>Guía:</strong> document · tinte yellow.</li>
+        <li><strong>Página:</strong> page-grid · tinte magenta.</li>
+        <li><strong>Producto fallback:</strong> box · tinte cyan.</li>
+        <li>Background del placeholder: linear-gradient 135deg con tinte CMYK + transparente al 2%, border 1px del mismo tinte al 18%.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Highlight de keyword</h4>
+      <ul class="comp-spec">
+        <li>Implementación: tag <code>&lt;mark&gt;</code> wrapping el match dentro del título. Construido con <code>document.createElement('mark')</code>, no via regex string-replace (XSS-safe).</li>
+        <li>Estilo: <code>background: rgba(var(--cyan), 0.20)</code> + <code>color: rgb(var(--cyan))</code> + <code>border-radius: 3px</code>.</li>
+        <li>Sólo en títulos de cards de productos. Vendor + price NO se highlightean.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>"Ver todos" CTA — silver-rotating-glow</h4>
+      <ul class="comp-spec">
+        <li>Pill dark <strong>opaco</strong> (<code>#121216</code>, NUNCA semi-translúcido sobre gradient) + texto blanco + border 1px sutil.</li>
+        <li><code>::before</code> con <code>conic-gradient</code> blanco "shooting star" (5 stops: 0% → 40% → 50% blanco → 60% → 100%).</li>
+        <li><code>filter: blur(14px)</code> idle + <code>blur(18px)</code> hover.</li>
+        <li><code>inset: -8px</code> idle + <code>-12px</code> hover ("swelling" effect).</li>
+        <li>Animación 5s linear infinite. Sin opacidad-toggle al hover (visible siempre, pero más intensa en hover).</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ GLOWS — silver vs CMYK ============ -->
+<section id="glow" class="sec wrap">
+  <div class="sec-head">
+    <span class="sec-num">16</span>
+    <div>
+      <h2>Glows: cuándo silver, cuándo CMYK.</h2>
+      <p class="sec-lead">La marca tiene dos firmas de halo rotatorio. No son intercambiables. La elección depende del rol del CTA en la página, no del gusto. Mezclarlos en una misma página produce ruido visual; mezclarlos en un mismo componente produce confusión semántica. Una página premium reserva CMYK para la acción primaria de dinero.</p>
+    </div>
+  </div>
+
+  <div class="comp-grid" style="grid-template-columns:1fr 1fr;gap:32px;margin-top:32px">
+
+    <div class="comp-tile" style="padding:32px">
+      <span class="cmyk-band-cyan" style="display:inline-block;padding:4px 12px;border-radius:999px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85);margin-bottom:18px;background:#fff;color:#0a0a0c;border:1px solid rgba(0,0,0,0.08)">Silver-rotating-glow</span>
+      <h4 style="margin-bottom:12px">Acciones secundarias.</h4>
+      <p style="margin-bottom:14px">"Más info / explorar / browse / ver todos." Energía contenida. Comunica disponibilidad, no urgencia.</p>
+      <p style="margin-bottom:14px"><strong>Dónde se usa:</strong></p>
+      <ul class="comp-spec">
+        <li>Hero secondary CTA: <strong>"Hazte distribuidor"</strong> (`fixes/homepage-hero-v5-2.liquid` `.hp-btn-glow-wrap`).</li>
+        <li>Search modal: <strong>"Ver todos los resultados"</strong> (`apex-search-v3.css` `.apex-view-all`).</li>
+        <li>Cualquier "Browse all", "Read more", "Explore catalog".</li>
+      </ul>
+      <p style="margin-top:14px"><strong>Gradient:</strong></p>
+      <pre style="background:#0e0e12;color:#d8d8da;padding:14px 16px;border-radius:10px;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;line-height:1.55">conic-gradient(
+  from var(--angle),
+  rgba(255,255,255,0)    0%,
+  rgba(255,255,255,0.08) 40%,
+  #ffffff                50%,
+  rgba(255,255,255,0.08) 60%,
+  rgba(255,255,255,0)    100%
+)</pre>
+    </div>
+
+    <div class="comp-tile" style="padding:32px">
+      <span style="display:inline-block;padding:4px 12px;border-radius:999px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#0a0a0c;background:linear-gradient(90deg,#00e0ff,#ff00a8,#ffd400,#6be39e);font-weight:700;margin-bottom:18px">CMYK-rotating-halo</span>
+      <h4 style="margin-bottom:12px">Acciones primarias de dinero.</h4>
+      <p style="margin-bottom:14px">"Comprar / hablar con ventas / suscríbete." Energía celebración. Comunica "este es el sitio donde quieres ir."</p>
+      <p style="margin-bottom:14px"><strong>Dónde se usa:</strong></p>
+      <ul class="comp-spec">
+        <li>IQ section B2B CTA: <strong>"Hablar con ventas"</strong> (`fixes/homepage-iq-section-v2.liquid` `.iq-b2b-cta`).</li>
+        <li>Welcome popup CTA principal (planificado).</li>
+        <li>Hero primary "Comprar ahora" (variant cyan-cmyk).</li>
+      </ul>
+      <p style="margin-top:14px"><strong>Gradient (5 stops mínimo — 3 stops produce banding):</strong></p>
+      <pre style="background:#0e0e12;color:#d8d8da;padding:14px 16px;border-radius:10px;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;line-height:1.55">conic-gradient(
+  from var(--angle),
+  rgb(var(--cyan))     0deg,
+  rgb(var(--magenta)) 90deg,
+  rgb(var(--yellow)) 180deg,
+  rgb(var(--mint))   270deg,
+  rgb(var(--cyan))   360deg
+)</pre>
+    </div>
+
+  </div>
+
+  <div style="margin-top:32px;padding:22px 26px;border-radius:14px;background:#0e0e12;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.10)">
+    <strong style="color:#fff;display:block;margin-bottom:6px">Regla de oro:</strong>
+    <span>Si dudas, usa silver. La marca lee más sofisticada cuando el CMYK queda reservado al CTA primario de la página. Una página con dos halos CMYK compite consigo misma; una página con dos silver lee cohesiva.</span>
+  </div>
+
+  <div style="margin-top:18px;padding:18px 22px;border-radius:14px;background:#fff7e0;border:1px solid #f0d97a;color:#3a2c00">
+    <strong style="display:block;margin-bottom:4px">Geometría obligatoria del halo:</strong>
+    <span><code>inset</code> ≥ <code>-6px</code> (idle) y ≥ <code>-10px</code> (hover). <code>filter: blur(...)</code> ≥ <code>10px</code>. Sin estos parámetros, el bright stop del gradient se ve como una línea estática (slash) en un lado del CTA. Aprendizaje del session 2026-04-28: el primer apex-search v3 fallaba con <code>inset: -1px</code> y sin blur — visible artifact.</span>
+  </div>
+</section>
+
+<!-- ============ SUBRAYADO TAPERED (footer Kiwi-style) ============ -->
+<section id="subrayado" class="sec wrap">
+  <div class="sec-head">
+    <span class="sec-num">17</span>
+    <div>
+      <h2>Subrayado neón con extremos afinados.</h2>
+      <p class="sec-lead">Hover effect del footer (`.ft-menu a::after`, `.ft-legal-links a::after`). Un trazo CMYK con extremos puntiagudos en lugar de bordes rectos — referencia visual: Kiwi.com. La forma cigar/leaf comunica "destino editado, no rectángulo de UI". El glow drop-shadow sigue la silueta tapered, no el bounding box rectangular.</p>
+    </div>
+  </div>
+
+  <div class="comp-grid" style="grid-template-columns:1fr 1fr;gap:28px;margin-top:32px">
+
+    <div class="comp-tile">
+      <h4>Forma — clip-path polygon</h4>
+      <p style="margin-bottom:12px">Polígono de 10 vértices, simétrico arriba/abajo y simétrico izquierda/derecha. Más vértices = curva más suave. Menos vértices = más pointy.</p>
+      <pre style="background:#0e0e12;color:#d8d8da;padding:14px 16px;border-radius:10px;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;line-height:1.55">clip-path: polygon(
+  0% 50%,
+  4% 25%, 10% 5%,
+  90% 5%, 96% 25%,
+  100% 50%,
+  96% 75%, 90% 95%,
+  10% 95%, 4% 75%
+);</pre>
+      <p style="margin-top:12px;font-size:13px;color:var(--c-soft)">Para los legal-links (línea más fina, texto más pequeño), usar transiciones más exageradas — <code>5%, 12%</code> en lugar de <code>4%, 10%</code> — para mantener la silueta tapered visible al tamaño reducido.</p>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Glow — drop-shadow, no box-shadow</h4>
+      <p style="margin-bottom:12px"><strong>Crítico:</strong> <code>box-shadow</code> sigue el bounding box rectangular y crea un halo cuadrado alrededor de una forma tapered. Romperá la ilusión.</p>
+      <p style="margin-bottom:12px"><code>filter: drop-shadow()</code> sigue el alpha channel del elemento, que el clip-path modifica. El halo se ajusta a la curva.</p>
+      <pre style="background:#0e0e12;color:#d8d8da;padding:14px 16px;border-radius:10px;font-family:ui-monospace,monospace;font-size:12px;overflow-x:auto;line-height:1.55">filter:
+  drop-shadow(0 0 4px rgba(var(--cyan), 0.65))
+  drop-shadow(0 0 10px rgba(var(--mint), 0.32));</pre>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Color — cyan→mint en dark, ink-blue→mint en light</h4>
+      <ul class="comp-spec">
+        <li>Dark theme: gradient cyan <code>rgb(var(--ft-cyan))</code> → mint <code>rgb(var(--ft-mint))</code>.</li>
+        <li>Light theme: <code>#00b4d8</code> → <code>#2d9c5e</code> (saturadas, no full-neon — el neón se desaparece sobre fondos claros).</li>
+        <li>El gradient horizontal hace que la mitad-izquierda del trazo lea cyan y la mitad-derecha lea mint, dándole movimiento aún cuando la animación no está corriendo.</li>
+      </ul>
+    </div>
+
+    <div class="comp-tile">
+      <h4>Animación — width 0 → 100%, easing premium</h4>
+      <ul class="comp-spec">
+        <li><code>transition: width .38s cubic-bezier(.16, 1, .3, 1)</code>.</li>
+        <li>Same easing que el reveal del hero — sensación de pieza nativa.</li>
+        <li>El subrayado se dibuja de izquierda a derecha en hover. Como el clip-path es proporcional al width del elemento, la forma cigar siempre lee correcta independiente del % completado.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ANTI-PATTERNS V2 ============ -->
+<section id="anti2" class="anti">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">18</span>
+      <div>
+        <h2>Lo que aprendimos esta semana.</h2>
+        <p class="sec-lead">Tres anti-patrones nuevos descubiertos durante la sprint del 28 de abril de 2026. Cada uno costó al menos una iteración de "esto se ve roto, arréglalo" antes de ser identificado como regla. Quedan codificados aquí para que no vuelvan a ocurrir.</p>
+      </div>
+    </div>
+    <div class="anti-grid">
+
+      <div class="anti-tile">
+        <h4>Conic-gradient CMYK con sólo 3 stops.</h4>
+        <p>Cyan→magenta→yellow→cyan crea un molinillo visible de 3 colores con transiciones abruptas. El ojo lee 3 regiones distintas, no un arcoíris. Solución: añadir <strong>mint como cuarto color</strong> + cyan loop final = 5 stops totales. Las separaciones entre stops bajan de 120° a 90° y el gradient lee continuo bajo blur. Aprendizaje: el v1 del CTA "Ver todos los resultados" del search modal fallaba con esto.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Badge absolute-corner sobre títulos que pueden envolver.</h4>
+        <p>Un <code>position: absolute; top: 8px; right: 8px;</code> sobre una card con título de 2 líneas inevitablemente solapa la última palabra del título. Visible: "ISO 9001" tapado por "OLECCIÓN". Solución: restructurar a un <strong>meta-row inline</strong> arriba del título que contenga vendor + badge en línea con <code>display: flex</code>. Predecible, nunca solapa, semánticamente más limpio.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Background semi-translúcido bajo gradient rotatorio.</h4>
+        <p>Un CTA con <code>background: rgba(18, 18, 22, 0.85)</code> y un <code>::before</code> con <code>conic-gradient</code> deja que el gradient se vea <strong>a través</strong> de la cara del botón — bands de color visible dentro de la pill. Solución: <strong>background sólido</strong> (<code>#121216</code>) o el wrapper-pattern del hero. La transparencia + halo es una trampa visual.</p>
       </div>
 
     </div>
