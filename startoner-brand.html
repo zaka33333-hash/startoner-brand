@@ -411,6 +411,63 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
   font-size:12px;opacity:.6;flex-wrap:wrap;
 }
 
+/* ============ SPACING ============ */
+.spacing-list{display:grid;gap:6px;background:#fff;border:1px solid var(--c-line);border-radius:var(--r-card);padding:18px 22px}
+.spacing-row{display:grid;grid-template-columns:80px 70px 1fr;gap:18px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--c-line)}
+.spacing-row:last-child{border-bottom:0}
+.spacing-name{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--c-ink)}
+.spacing-px{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--c-mute)}
+.spacing-bar{height:8px;background:var(--c-ink);border-radius:2px;max-width:100%}
+.discipline{margin-top:24px;padding:20px 24px;border-radius:var(--r-card);background:#ff00a808;border:1px solid #ff00a830}
+.discipline-eye{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#a40063;font-weight:600;margin-bottom:6px}
+.discipline p{font-size:14px;color:var(--c-soft);margin:0}
+.discipline p code{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:#fff;padding:1px 5px;border-radius:4px}
+
+/* ============ MOTION ============ */
+.motion-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.motion-card{padding:24px;border-radius:var(--r-card);background:#fff;border:1px solid var(--c-line);position:relative;overflow:hidden}
+.motion-card-eye{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--c-mute);margin-bottom:6px}
+.motion-card-name{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.motion-card-spec{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--c-soft);line-height:1.6;margin-bottom:18px}
+.motion-card-track{position:relative;height:6px;border-radius:6px;background:var(--c-bone);overflow:hidden}
+.motion-card-dot{position:absolute;top:-3px;left:0;width:12px;height:12px;border-radius:50%;background:var(--c-ink)}
+.motion-card[data-ease="natural"] .motion-card-dot{animation:m-natural 2.4s cubic-bezier(0.4,0,0.2,1) infinite}
+.motion-card[data-ease="glide"] .motion-card-dot{animation:m-glide 2.4s cubic-bezier(0.16,1,0.30,1) infinite}
+.motion-card[data-ease="spring"] .motion-card-dot{animation:m-spring 2.4s cubic-bezier(0.34,1.56,0.64,1) infinite}
+.motion-card[data-ease="loop"] .motion-card-dot{animation:m-natural 6s linear infinite;background:var(--c-cyan);box-shadow:0 0 12px var(--c-cyan)}
+@keyframes m-natural { 0%{left:0} 50%{left:calc(100% - 12px)} 100%{left:0} }
+@keyframes m-glide   { 0%{left:0} 50%{left:calc(100% - 12px)} 100%{left:0} }
+@keyframes m-spring  { 0%{left:0} 50%{left:calc(100% - 12px)} 100%{left:0} }
+@media (prefers-reduced-motion: reduce){
+  .motion-card-dot{animation:none !important;left:calc(100% - 12px) !important}
+}
+.duration-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.duration-tile{padding:18px;border-radius:14px;background:var(--c-bone);border:1px solid var(--c-line);text-align:left}
+.duration-tile-eye{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c-mute);margin-bottom:6px}
+.duration-tile-val{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:var(--c-ink);margin-bottom:4px}
+.duration-tile-use{font-size:12px;color:var(--c-soft)}
+
+/* ============ ICONOS ============ */
+.icon-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(110px, 1fr));gap:8px}
+.icon-tile{display:grid;place-items:center;gap:10px;padding:18px 10px;border-radius:14px;background:#fff;border:1px solid var(--c-line);transition:border-color .2s ease, transform .2s ease}
+.icon-tile:hover{border-color:var(--c-cyan);transform:translateY(-1px)}
+.icon-tile svg{width:32px;height:32px;color:var(--c-ink)}
+.icon-tile-name{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c-mute)}
+
+/* ============ ANTI-PATTERNS ============ */
+.anti{background:#0c0c0e;color:#fff;padding:clamp(56px,8vw,96px) 0;border-bottom:0}
+.anti .sec-num{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#fff}
+.anti .sec-num::before{background:#ff00a8;box-shadow:0 0 8px #ff00a8}
+.anti h2,.anti .sec-lead{color:#fff}
+.anti .sec-lead{opacity:.78}
+.anti-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.anti-tile{padding:24px;border-radius:var(--r-card);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);position:relative}
+.anti-tile::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:#ff00a8;border-radius:3px 0 0 3px}
+.anti-tile h4{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;color:#fff}
+.anti-tile p{font-size:14px;color:rgba(255,255,255,.72);line-height:1.55}
+.anti-tile p code{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:rgba(255,255,255,.08);padding:1px 5px;border-radius:4px;color:#fff}
+.anti-tile p strong{color:#fff}
+
 /* ============ MOBILE ============ */
 @media (max-width: 900px){
   .hero-row{grid-template-columns:1fr;gap:32px}
@@ -462,10 +519,14 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
       <a href="#nombre">Nombre</a>
       <a href="#logo">Logo</a>
       <a href="#color">Color</a>
+      <a href="#espacio">Espaciado</a>
       <a href="#tipo">Tipografía</a>
+      <a href="#movimiento">Movimiento</a>
       <a href="#voz">Voz</a>
       <a href="#componentes">Componentes</a>
+      <a href="#iconos">Iconos</a>
       <a href="#mensajes">Mensajes</a>
+      <a href="#anti">Lo que no hacemos</a>
     </div>
   </div>
 </nav>
@@ -703,10 +764,42 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
   </div>
 </section>
 
+<!-- ============ ESPACIADO ============ -->
+<section id="espacio" class="sec wrap">
+  <div class="sec-head">
+    <span class="sec-num">06</span>
+    <div>
+      <h2>Espaciado.</h2>
+      <p class="sec-lead">Una rejilla de 8 px. Sin excepciones. Cada padding, margin y gap del sitio sale de un token. Si necesitas un valor que no existe, mediste mal — vuelve a medir y casi siempre encajará en el token vecino.</p>
+    </div>
+  </div>
+
+  <div class="spacing-list">
+    <div class="spacing-row"><div class="spacing-name">--s-1</div><div class="spacing-px">4 px</div><div class="spacing-bar" style="width:4px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-2</div><div class="spacing-px">8 px</div><div class="spacing-bar" style="width:8px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-3</div><div class="spacing-px">12 px</div><div class="spacing-bar" style="width:12px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-4</div><div class="spacing-px">16 px</div><div class="spacing-bar" style="width:16px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-5</div><div class="spacing-px">20 px</div><div class="spacing-bar" style="width:20px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-6</div><div class="spacing-px">24 px</div><div class="spacing-bar" style="width:24px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-8</div><div class="spacing-px">32 px</div><div class="spacing-bar" style="width:32px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-10</div><div class="spacing-px">40 px</div><div class="spacing-bar" style="width:40px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-12</div><div class="spacing-px">48 px</div><div class="spacing-bar" style="width:48px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-16</div><div class="spacing-px">64 px</div><div class="spacing-bar" style="width:64px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-20</div><div class="spacing-px">80 px</div><div class="spacing-bar" style="width:80px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-24</div><div class="spacing-px">96 px</div><div class="spacing-bar" style="width:96px"></div></div>
+    <div class="spacing-row"><div class="spacing-name">--s-32</div><div class="spacing-px">128 px</div><div class="spacing-bar" style="width:128px"></div></div>
+  </div>
+
+  <div class="discipline">
+    <span class="discipline-eye">Tokens que no existen</span>
+    <p>No hay <code>--s-7</code>, <code>--s-9</code>, <code>--s-11</code>, <code>--s-13</code>, <code>--s-14</code>, <code>--s-15</code>. Si te tienta un 28 px, prueba 24 o 32 — casi siempre uno de los dos resuelve mejor el problema. La fricción del sistema es la que mantiene las composiciones limpias.</p>
+  </div>
+</section>
+
 <!-- ============ TIPOGRAFÍA ============ -->
 <section id="tipo" class="sec wrap">
   <div class="sec-head">
-    <span class="sec-num">06</span>
+    <span class="sec-num">07</span>
     <div>
       <h2>Tipografía.</h2>
       <p class="sec-lead">Dos familias variables, ambas open-source. Manrope para todo lo que vende. Assistant para todo lo que informa. JetBrains Mono para datos.</p>
@@ -738,10 +831,81 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
   </div>
 </section>
 
+<!-- ============ MOVIMIENTO ============ -->
+<section id="movimiento" class="sec wrap">
+  <div class="sec-head">
+    <span class="sec-num">08</span>
+    <div>
+      <h2>Movimiento.</h2>
+      <p class="sec-lead">El movimiento es tipografía temporal. Tres curvas de aceleración, cuatro duraciones y un compromiso con <code>prefers-reduced-motion</code>. Ninguna animación supera los 720 ms — excepto el silver-glow del CTA, que es la firma cinética.</p>
+    </div>
+  </div>
+
+  <div class="motion-grid">
+
+    <div class="motion-card" data-ease="natural">
+      <div class="motion-card-eye">--ease-natural</div>
+      <div class="motion-card-name">Peso natural</div>
+      <div class="motion-card-spec">cubic-bezier(0.4, 0, 0.2, 1)<br>Default. Para hover, transforms, lifts.</div>
+      <div class="motion-card-track"><div class="motion-card-dot"></div></div>
+    </div>
+
+    <div class="motion-card" data-ease="glide">
+      <div class="motion-card-eye">--ease-glide</div>
+      <div class="motion-card-name">Apple curve</div>
+      <div class="motion-card-spec">cubic-bezier(0.16, 1, 0.30, 1)<br>Salida rápida, aterrizaje largo. Para entradas hero.</div>
+      <div class="motion-card-track"><div class="motion-card-dot"></div></div>
+    </div>
+
+    <div class="motion-card" data-ease="spring">
+      <div class="motion-card-eye">--ease-spring</div>
+      <div class="motion-card-name">Spring overshoot</div>
+      <div class="motion-card-spec">cubic-bezier(0.34, 1.56, 0.64, 1)<br>Pop-ins, badges entrando, microinteracciones lúdicas.</div>
+      <div class="motion-card-track"><div class="motion-card-dot"></div></div>
+    </div>
+
+    <div class="motion-card" data-ease="loop">
+      <div class="motion-card-eye">--ease-vs-loop</div>
+      <div class="motion-card-name">Silver-glow loop</div>
+      <div class="motion-card-spec">linear · 6000ms<br>Único loop infinito permitido. Solo el CTA primario y el frame del logo.</div>
+      <div class="motion-card-track"><div class="motion-card-dot"></div></div>
+    </div>
+
+  </div>
+
+  <div class="duration-row">
+    <div class="duration-tile">
+      <div class="duration-tile-eye">--d-instant</div>
+      <div class="duration-tile-val">100ms</div>
+      <div class="duration-tile-use">Cambios de estado hover · color text</div>
+    </div>
+    <div class="duration-tile">
+      <div class="duration-tile-eye">--d-quick</div>
+      <div class="duration-tile-val">250ms</div>
+      <div class="duration-tile-use">Botones, cards, transforms cortas</div>
+    </div>
+    <div class="duration-tile">
+      <div class="duration-tile-eye">--d-base</div>
+      <div class="duration-tile-val">420ms</div>
+      <div class="duration-tile-use">Drawers, modales, cambios de sección</div>
+    </div>
+    <div class="duration-tile">
+      <div class="duration-tile-eye">--d-slow</div>
+      <div class="duration-tile-val">720ms</div>
+      <div class="duration-tile-use">Reveals secuenciales del hero</div>
+    </div>
+  </div>
+
+  <div class="discipline">
+    <span class="discipline-eye">Reduced-motion contract</span>
+    <p>Cualquier animación con <code>animation</code> o <code>transition</code> debe respetar <code>prefers-reduced-motion: reduce</code>. El silver-glow del CTA, las pulsaciones del status pill y el shimmer del frame del logo se desactivan automáticamente para usuarios sensibles. Estado final visible siempre, animación tronco — nunca.</p>
+  </div>
+</section>
+
 <!-- ============ VOZ ============ -->
 <section id="voz" class="sec wrap">
   <div class="sec-head">
-    <span class="sec-num">07</span>
+    <span class="sec-num">09</span>
     <div>
       <h2>Voz y tono.</h2>
       <p class="sec-lead">Startoner suena directa, técnica y honesta. Promete poco; cumple en exceso. Nunca infla la edad de la marca, los premios que no tiene, ni las leyes que no aplican.</p>
@@ -809,7 +973,7 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
 <!-- ============ COMPONENTES ============ -->
 <section id="componentes" class="sec wrap">
   <div class="sec-head">
-    <span class="sec-num">08</span>
+    <span class="sec-num">10</span>
     <div>
       <h2>Componentes signature.</h2>
       <p class="sec-lead">Tres elementos repetidos en todas las superficies que dan a Startoner su firma visual. El brillo plateado rotatorio del CTA es la marca de calidad de la casa.</p>
@@ -872,10 +1036,79 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
   </div>
 </section>
 
+<!-- ============ ICONOS ============ -->
+<section id="iconos" class="sec wrap">
+  <div class="sec-head">
+    <span class="sec-num">11</span>
+    <div>
+      <h2>Iconografía.</h2>
+      <p class="sec-lead">Línea de 1.5 px sobre viewBox de 24. Stroke <code>currentColor</code> para que el icono herede el color del contexto. Diez iconos que cubren el 90% del catálogo de productos y mensajes.</p>
+    </div>
+  </div>
+  <div class="icon-grid">
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><rect x="6" y="9" width="9" height="6" rx="1"/><circle cx="18.5" cy="12" r="0.6" fill="currentColor"/></svg>
+      <span class="icon-tile-name">cartucho</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 c-3 4-6 7.5-6 11 a6 6 0 0 0 12 0 c0-3.5-3-7-6-11z"/></svg>
+      <span class="icon-tile-name">tinta-gota</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L4 14 h7 l-2 8 9-12 h-7 z"/></svg>
+      <span class="icon-tile-name">rayo-velocidad</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L4 5 v6 c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11 V5 z"/><path d="M9 12 l2 2 4-4"/></svg>
+      <span class="icon-tile-name">escudo-garantía</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12 l3 3 5-6"/></svg>
+      <span class="icon-tile-name">certificado</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 a9 9 0 0 1 15.5-6"/><path d="M21 6 v6 h-6"/><path d="M21 12 a9 9 0 0 1 -15.5 6"/><path d="M3 18 v-6 h6"/></svg>
+      <span class="icon-tile-name">devolución-30d</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9 V4 h12 V9"/><rect x="3" y="9" width="18" height="9" rx="1"/><path d="M7 18 V21 h10 V18"/><circle cx="17.5" cy="13" r="0.6" fill="currentColor"/></svg>
+      <span class="icon-tile-name">impresora</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7 h2 l3 11 h11 l2-8 H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg>
+      <span class="icon-tile-name">carrito</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14 a8 8 0 0 1 16 0"/><rect x="3" y="14" width="4" height="6" rx="1.2"/><rect x="17" y="14" width="4" height="6" rx="1.2"/></svg>
+      <span class="icon-tile-name">soporte</span>
+    </div>
+
+    <div class="icon-tile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="M9 8 h6 M9 12 h6 M9 16 h4"/></svg>
+      <span class="icon-tile-name">factura</span>
+    </div>
+
+  </div>
+
+  <div class="discipline" style="background:#00e0ff10;border-color:#00e0ff40">
+    <span class="discipline-eye" style="color:#00708a">Sin emojis en interfaces críticas</span>
+    <p>Los iconos vectoriales se usan en cards, listas y trust signals. Los emojis (📦 🔒 ✅) están <strong>vetados</strong> en checkout, PDP, footer y emails transaccionales: rinden distinto entre sistemas operativos y degradan la percepción de marca técnica seria. Permitidos solo en blog body y RRSS.</p>
+  </div>
+</section>
+
 <!-- ============ MENSAJES ============ -->
 <section id="mensajes" class="sec wrap">
   <div class="sec-head">
-    <span class="sec-num">09</span>
+    <span class="sec-num">12</span>
     <div>
       <h2>Mensajes clave.</h2>
       <p class="sec-lead">Los nueve mensajes que cualquier superficie de Startoner debe poder defender ante un cliente, un abogado y un auditor SEO.</p>
@@ -926,6 +1159,82 @@ a:hover{text-decoration-color:rgba(0,0,0,.5)}
       <span class="msg-card-tag">Compromiso</span>
       <p class="msg-card-quote">"Si HP, Canon o Brother bloquean tu impresora por usar compatibles, te respaldamos legalmente."</p>
       <p class="msg-card-meta">FAQ · home iq · trust block</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANTI-PATTERNS ============ -->
+<section id="anti" class="anti">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">13</span>
+      <div>
+        <h2>Lo que Startoner nunca hace.</h2>
+        <p class="sec-lead">Una marca se define tanto por lo que rechaza como por lo que adopta. Esta lista pesa lo mismo que la paleta de color y la tipografía. Cada punto sale de un hallazgo concreto del audit pre-launch del 26 de abril de 2026.</p>
+      </div>
+    </div>
+    <div class="anti-grid">
+
+      <div class="anti-tile">
+        <h4>"Fundado en 1998" para la marca.</h4>
+        <p>La marca Startoner se lanzó en 2025. La cifra 1998 pertenece al grupo matriz Recycop. Mezclarlas es <strong>LCD Art. 5 (engaño)</strong> y motivo de suspensión en Google Ads por <code>Misrepresentation</code>.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>"25 años sin un solo caso documentado."</h4>
+        <p>Aunque suene bien, es un récord verificable que Startoner no puede demostrar — y el audit interno encontró cero documentación que lo respalde. Eliminado de homepage, FAQ, llms-txt y JSON-LD.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Citar reglamentos UE inventados.</h4>
+        <p>El RGPD <code>(UE) 2016/679</code> protege datos personales, no garantías de impresoras. La Ley 2017/1369 regula <strong>etiquetado energético</strong>. La 2018/302 regula <strong>geo-bloqueo</strong>. Para hablar de garantía solo: <code>art. 120 RDL 1/2007 (LGDCU)</code> + <code>Directiva (UE) 2019/771</code>.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>"Lunes a Viernes 09:00-14:00."</h4>
+        <p>Imponer horarios de oficina contradice la promesa de soporte. Cuando un cliente compra un cartucho un sábado por la tarde, no quiere ver "cerrado". Sustituir siempre por <strong>"Siempre disponibles"</strong> o eliminar la línea horaria.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>"4.8/5 en reseñas certificadas."</h4>
+        <p>Mientras los PDPs digan "Sé el primero en escribir una reseña", una rating en home destruye la credibilidad en 1 segundo de scroll. Hasta que Judge.me tenga 50+ reseñas reales: usar trust signals verificables (Garantía 3 años · ISO 9001 · Devolución 30 días).</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Equiparar visualmente nuestra marca a HP / Canon / Brother.</h4>
+        <p>En cualquier listado, schema o copy, el logo de Startoner nunca aparece al mismo tamaño o tratamiento que las marcas de fabricantes OEM. Las marcas OEM se citan solo "con fines descriptivos para indicar compatibilidad" (LM Art. 14).</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Star Toner · Star-Toner · STARTONER en copy editorial.</h4>
+        <p>Una sola palabra, una sola "S" inicial: <strong>Startoner</strong>. El dominio <code>star-toner.com</code> es histórico y no se cambia por SEO, pero la marca escrita siempre es Startoner. Mayúsculas integrales solo en eyebrows / badges.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Adjetivos no verificables.</h4>
+        <p>Eliminadas: <code>"premium"</code>, <code>"calidad superior"</code>, <code>"innovador"</code>, <code>"el mejor"</code>, <code>"líder en"</code>. Cambiarlos por números, certificaciones o citas legales. Si no tiene fuente, no entra.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Reembolso por debajo del plazo legal.</h4>
+        <p>Decir "reembolsamos en 7 días hábiles tras validación de calidad" infringe el <strong>art. 76 LGDCU</strong> (máximo 14 días naturales desde la comunicación de desistimiento). Crea responsabilidad LCD Art. 5 + LGDCU Art. 105 (extensión automática a 12 meses).</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Em-dashes (—) salvo en el logo.</h4>
+        <p>El tiret cadratin delata un borrador no revisado. Sustituible siempre por coma, punto-y-coma o dos puntos. Ninguna copia editorial de Startoner debe llevarlo. Excepción: el wordmark del logo cuando aparece en composiciones.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Glass-morphism + drop-shadows decorativas.</h4>
+        <p>Sin <code>backdrop-filter: blur</code> en CTAs ni capas semi-translúcidas pseudo-iOS. Las sombras son funcionales (elevación de cards en hover); las decorativas se descartan. La firma visual son los <strong>gradientes radiales CMYK</strong> + el silver-rotating-glow.</p>
+      </div>
+
+      <div class="anti-tile">
+        <h4>Stock photography de tóner genérico.</h4>
+        <p>Las imágenes de producto deben ser fotos reales del almacén de Los Barrios, con nuestro packaging, nuestros precintos. Los placeholders genéricos (cualquier <code>https://images.unsplash.com/*</code> con un cartucho rosa flotando) están prohibidos.</p>
+      </div>
+
     </div>
   </div>
 </section>
